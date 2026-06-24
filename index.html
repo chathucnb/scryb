@@ -26,7 +26,10 @@
   --gap: 10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html.lenis,html.lenis body{height:auto;}
+.lenis.lenis-smooth{scroll-behavior:auto!important;}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain;}
+.lenis.lenis-stopped{overflow:hidden;}
 body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 h1,h2,h3,h4{font-family:'Sora',sans-serif;}
 a{text-decoration:none;color:inherit;}
@@ -552,9 +555,31 @@ img{max-width:100%;display:block;}
 'use strict';
 
 // Lenis smooth scroll
+var lenis;
 if(typeof Lenis!=='undefined'){
-  var lenis=new Lenis({lerp:.085,smoothWheel:true});
-  (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
+  lenis=new Lenis({lerp:.1,duration:1.1,smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.2});
+  lenis.on('scroll',function(){
+    if(typeof ScrollTrigger!=='undefined') ScrollTrigger.update();
+  });
+  if(typeof gsap!=='undefined'){
+    gsap.ticker.add(function(time){ lenis.raf(time*1000); });
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
+  }
+  // Smooth-scroll same-page anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href');
+      if(id.length>1){
+        var target=document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          lenis.scrollTo(target,{offset:-72,duration:1.2});
+        }
+      }
+    });
+  });
 }
 
 // GSAP setup
