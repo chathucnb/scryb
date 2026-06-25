@@ -41,10 +41,10 @@ img{max-width:100%;display:block;}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s;}
-.nav-inner{max-width:1320px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 24px;height:92px;display:flex;align-items:center;justify-content:space-between;}
 .logo{display:flex;align-items:center;gap:9px;font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px;}
-.logo-img{height:39px;width:auto;display:block;}
-.footer-brand .logo-img{height:44px;}
+.logo-img{height:78px;width:auto;display:block;}
+.footer-brand .logo-img{height:88px;}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
 .nav-links a{padding:8px 14px;font-size:14px;font-weight:500;color:var(--muted);border-radius:8px;transition:color .2s,background .2s;}
 .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06);}
@@ -57,7 +57,7 @@ img{max-width:100%;display:block;}
 .mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);border-radius:2px;transition:transform .3s,opacity .3s;}
 
 /* HERO — Full bleed */
-.hero-section{width:100%;min-height:75vh;margin-top:64px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 96px;text-align:center;background:var(--bg);}
+.hero-section{width:100%;min-height:75vh;margin-top:92px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 96px;text-align:center;background:var(--bg);}
 /* Top glow line */
 .hero-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(255,77,0,.55) 30%,rgba(255,77,0,1) 50%,rgba(255,77,0,.55) 70%,transparent 95%);z-index:1;}
 /* Radial orange glow */
@@ -289,7 +289,7 @@ body.modal-open{overflow:hidden;}
 }
 
 /* Mobile nav open */
-.mnav-open .nav-links{display:flex!important;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 20px 24px;gap:4px;z-index:99;}
+.mnav-open .nav-links{display:flex!important;flex-direction:column;position:fixed;top:92px;left:0;right:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 20px 24px;gap:4px;z-index:99;}
 .mnav-open .nav-right .btn-orange,.mnav-open .nav-right .nav-login{display:inline-flex;}
 
 /* Hover glow utility */
@@ -772,7 +772,7 @@ if(typeof Lenis!=='undefined'){
         var target=document.querySelector(id);
         if(target){
           e.preventDefault();
-          lenis.scrollTo(target,{offset:-72,duration:1.2});
+          lenis.scrollTo(target,{offset:-100,duration:1.2});
         }
       }
     });
