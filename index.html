@@ -226,6 +226,26 @@ img{max-width:100%;display:block;}
 /* CURSOR */
 #cursor{position:fixed;pointer-events:none;z-index:9999;width:8px;height:8px;background:var(--orange);border-radius:50%;transform:translate(-50%,-50%);opacity:0;transition:transform .15s,opacity .2s;}
 
+/* CONTACT MODAL */
+body.modal-open{overflow:hidden;}
+.modal-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(5,5,5,.7);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s;}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:40px 36px;max-width:440px;width:100%;position:relative;transform:translateY(16px) scale(.97);transition:transform .25s;box-shadow:0 24px 80px rgba(0,0,0,.5);}
+.modal-overlay.open .modal-box{transform:translateY(0) scale(1);}
+.modal-close{position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s;}
+.modal-close:hover{background:rgba(255,255,255,.1);color:var(--white);}
+.modal-label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+.modal-title{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
+.modal-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px;}
+.modal-form{display:flex;flex-direction:column;gap:16px;}
+.modal-field{display:flex;flex-direction:column;gap:7px;}
+.modal-field label{font-size:12.5px;font-weight:600;color:var(--muted);}
+.modal-field input,.modal-field textarea{background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--white);transition:border-color .2s;resize:vertical;}
+.modal-field input::placeholder,.modal-field textarea::placeholder{color:var(--dim);}
+.modal-field input:focus,.modal-field textarea:focus{outline:none;border-color:rgba(255,77,0,.5);}
+.modal-submit{justify-content:center;margin-top:6px;width:100%;}
+.modal-status{font-size:13px;color:var(--orange);text-align:center;min-height:16px;}
+
 /* MOBILE */
 @media(max-width:1024px){
   .stats-grid{grid-template-columns:1fr 1fr;}
@@ -320,7 +340,7 @@ img{max-width:100%;display:block;}
         Get started for free
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#demo" class="btn-ghost">Get a demo</a>
+      <a href="#contact" class="btn-ghost">Get a demo</a>
     </div>
   </div>
   <div class="hero-ticker">
@@ -430,7 +450,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>Self-Learning AI</h3>
         <p>Learns your bookkeeping rules from historical data and starts coding transactions automatically.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -442,7 +462,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>Duplicate Detection Before Posting</h3>
         <p>Scryb automatically detects potential duplicate transactions before they're posted, helping you avoid double entries and maintain clean books.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -454,7 +474,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>Line Item Extraction</h3>
         <p>Extract every line item from invoices, bills, and receipts even when documents are messy or handwritten.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -466,7 +486,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>Bank Statement Extraction</h3>
         <p>Turn any bank statement into structured transactions ready for Xero, QuickBooks, or CSV export.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -478,7 +498,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>Handwriting Recognition</h3>
         <p>Accurately reads handwritten invoices, bills, receipts, and notes, turning them into structured, usable accounting data without manual entry.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -490,7 +510,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>SharePoint, Dropbox, Google Drive Integrations</h3>
         <p>Connect your existing storage tools and let Scryb automatically ingest documents from SharePoint, Dropbox, or Google Drive for seamless processing.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -502,7 +522,7 @@ img{max-width:100%;display:block;}
       <div class="feat-copy">
         <h3>Auto-Split</h3>
         <p>Upload one mixed PDF. Scryb automatically separates invoices, receipts, and statements into individual documents.</p>
-        <a href="#demo" class="feat-btn">Book a demo</a>
+        <a href="#contact" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -642,7 +662,7 @@ img{max-width:100%;display:block;}
         <span class="pricing-more-q">Need an on-prem deployment?</span>
       </div>
     </div>
-    <a href="#demo" class="btn-w">Contact us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#contact" class="btn-w">Contact us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 
@@ -654,13 +674,10 @@ img{max-width:100%;display:block;}
     <p class="cta-sub">See how Scryb fits into your workflow — book a demo or get started today.</p>
     <div class="cta-btns">
       <a href="#signup" class="btn-cw">Get started for free</a>
-      <a href="#demo" class="btn-co">Get a demo</a>
+      <a href="#contact" class="btn-co">Get a demo</a>
     </div>
   </div>
 </section>
-
-<div id="demo" style="height:0;"></div>
-<div id="app" style="height:0;"></div>
 
 <!-- FOOTER -->
 <footer class="footer-wrap">
@@ -692,6 +709,37 @@ img{max-width:100%;display:block;}
     </div>
   </div>
 </footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="modal-close" id="contactClose" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-label"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.6 3.3 3.5.5-2.5 2.4.6 3.5L6.5 9l-3.2 1.7.6-3.5L1.4 4.8l3.5-.5z" stroke="#FF4D00" stroke-width="1.3" stroke-linejoin="round"/></svg>Contact us</div>
+    <h3 id="contactTitle" class="modal-title">Let's talk</h3>
+    <p class="modal-sub">Tell us a bit about what you need — we'll get back to you shortly.</p>
+    <form id="contactForm" class="modal-form">
+      <div class="modal-field">
+        <label for="cName">Name</label>
+        <input type="text" id="cName" name="name" placeholder="Your name" required>
+      </div>
+      <div class="modal-field">
+        <label for="cEmail">Email</label>
+        <input type="email" id="cEmail" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="modal-field">
+        <label for="cMessage">Message</label>
+        <textarea id="cMessage" name="message" rows="4" placeholder="How can we help?" required></textarea>
+      </div>
+      <button type="submit" class="btn-w modal-submit">
+        Send message
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="modal-status" id="contactStatus"></p>
+    </form>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -853,6 +901,55 @@ document.querySelectorAll('.stat,.step,.ba-card,.price-card').forEach(function(c
     card.style.transform='';
   });
 });
+
+// Contact modal
+var contactModal=document.getElementById('contactModal');
+var contactForm=document.getElementById('contactForm');
+var contactStatus=document.getElementById('contactStatus');
+var contactClose=document.getElementById('contactClose');
+if(contactModal&&contactForm){
+  function openContactModal(e){
+    if(e) e.preventDefault();
+    contactModal.classList.add('open');
+    document.body.classList.add('modal-open');
+    if(typeof lenis!=='undefined'&&lenis) lenis.stop();
+    setTimeout(function(){
+      var f=document.getElementById('cName');
+      if(f) f.focus();
+    },200);
+  }
+  function closeContactModal(){
+    contactModal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    if(typeof lenis!=='undefined'&&lenis) lenis.start();
+    contactStatus.textContent='';
+  }
+  document.querySelectorAll('a[href="#contact"]').forEach(function(a){
+    a.addEventListener('click',openContactModal);
+  });
+  contactClose.addEventListener('click',closeContactModal);
+  contactModal.addEventListener('click',function(e){
+    if(e.target===contactModal) closeContactModal();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&contactModal.classList.contains('open')) closeContactModal();
+  });
+  contactForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=contactForm.name.value.trim();
+    var email=contactForm.email.value.trim();
+    var message=contactForm.message.value.trim();
+    if(!name||!email||!message) return;
+    var subject=encodeURIComponent('New inquiry from '+name+' — Scryb website');
+    var body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message);
+    contactStatus.textContent='Opening your email client…';
+    window.location.href='mailto:hello@booleenlab.com?subject='+subject+'&body='+body;
+    setTimeout(function(){
+      closeContactModal();
+      contactForm.reset();
+    },1400);
+  });
+}
 
 })();
 </script>
