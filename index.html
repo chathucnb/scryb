@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scryb — AI Document Digitization</title>
-<link rel="icon" type="image/png" href="assets/logo-orange.png">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -48,7 +48,9 @@ img{max-width:100%;display:block;}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
 .nav-links a{padding:8px 14px;font-size:14px;font-weight:500;color:var(--muted);border-radius:8px;transition:color .2s,background .2s;}
 .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06);}
-.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-right{display:flex;align-items:center;gap:18px;}
+.nav-login{font-size:14px;font-weight:500;color:var(--muted);transition:color .2s;}
+.nav-login:hover{color:var(--white);}
 .btn-orange{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--orange);color:var(--white);border-radius:8px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;border:none;cursor:pointer;transition:background .2s,transform .2s;}
 .btn-orange:hover{background:var(--orange-d);transform:translateY(-1px);}
 .mob-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
@@ -66,9 +68,6 @@ img{max-width:100%;display:block;}
 .hero-left-glow{position:absolute;top:20%;left:-10%;width:400px;height:400px;background:radial-gradient(ellipse,rgba(255,77,0,.06) 0%,transparent 70%);pointer-events:none;}
 .hero-right-glow{position:absolute;top:20%;right:-10%;width:400px;height:400px;background:radial-gradient(ellipse,rgba(255,77,0,.06) 0%,transparent 70%);pointer-events:none;}
 .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:920px;}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.25);border-radius:100px;padding:6px 18px 6px 7px;font-size:12px;font-weight:600;color:rgba(255,130,60,.95);letter-spacing:.04em;text-transform:uppercase;margin-bottom:30px;}
-.hero-badge .bd{width:22px;height:22px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:pulse-ring 2.5s ease-in-out infinite;}
-@keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(255,77,0,.5);}50%{box-shadow:0 0 0 6px rgba(255,77,0,0);}}
 .hero-h{font-size:clamp(40px,6vw,86px);font-weight:800;line-height:1.01;letter-spacing:-3px;margin-bottom:24px;}
 .hero-h .ipill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,77,0,.14);border:1px solid rgba(255,77,0,.32);border-radius:100px;padding:4px 18px 4px 5px;vertical-align:middle;position:relative;top:-6px;font-size:.64em;font-weight:800;color:var(--orange);white-space:nowrap;letter-spacing:-.5px;}
 .hero-h .ipill img{width:32px;height:32px;border-radius:50%;object-fit:cover;}
@@ -107,6 +106,7 @@ img{max-width:100%;display:block;}
 .sec-label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
 .sec-title{font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:14px;}
 .sec-sub{font-size:15px;line-height:1.75;color:var(--muted);max-width:520px;margin:0 auto;}
+.hl{color:var(--orange);}
 
 /* PROCESS */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;}
@@ -120,24 +120,38 @@ img{max-width:100%;display:block;}
 .step-title{font-size:20px;font-weight:700;margin-bottom:12px;}
 .step-desc{font-size:14px;line-height:1.7;color:var(--muted);}
 
-/* FEATURES BENTO */
-.feat-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
-.fc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:16px;transition:border-color .3s,transform .3s,background .3s;}
-.fc:hover{border-color:var(--border-h);transform:translateY(-4px);background:rgba(255,77,0,.025);}
-.fc-lg{grid-column:span 3;grid-row:span 2;}
-.fc-md{grid-column:span 3;}
-.fc-sm{grid-column:span 2;}
-.fc-full{grid-column:span 6;}
-.fc-ico{width:48px;height:48px;background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.fc-title{font-size:18px;font-weight:700;letter-spacing:-.2px;}
-.fc-lg .fc-title{font-size:24px;}
-.fc-desc{font-size:14px;line-height:1.7;color:var(--muted);}
-.fc-lg .fc-desc{font-size:15px;}
-.fc-img{margin-top:auto;border-radius:12px;overflow:hidden;}
-.fc-img img{width:100%;height:200px;object-fit:cover;opacity:.7;transition:opacity .3s;}
-.fc-lg:hover .fc-img img{opacity:.9;}
-.fc-split-row{display:flex;align-items:center;justify-content:space-between;gap:28px;}
-.split-doc{width:46px;height:58px;background:rgba(255,255,255,.06);border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+/* PROCESS — Before/After */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;}
+.ba-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:border-color .3s;}
+.ba-card:hover{border-color:var(--border-h);}
+.ba-card-after{background:rgba(255,77,0,.04);border-color:rgba(255,77,0,.18);}
+.ba-tag{display:inline-flex;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:18px;}
+.ba-tag-before{background:rgba(255,255,255,.08);color:var(--muted);}
+.ba-tag-after{background:var(--orange);color:var(--white);}
+.ba-text{font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:24px;min-height:50px;}
+.ba-media .feat-placeholder{aspect-ratio:16/10;}
+.ba-works{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
+.ba-works-label{font-size:13px;color:var(--dim);font-weight:500;}
+.ba-brands{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.ba-brand{font-size:13px;font-weight:600;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:100px;padding:8px 18px;}
+
+/* FEATURES — Alternating rows */
+.feat-rows{display:flex;flex-direction:column;}
+.feat-row{display:flex;align-items:center;gap:64px;padding:52px 0;border-bottom:1px solid var(--border);}
+.feat-row:last-child{border-bottom:none;}
+.feat-row.reverse{flex-direction:row-reverse;}
+.feat-media{flex:1 1 0;min-width:0;}
+.feat-chrome{display:flex;gap:6px;background:var(--card2);border:1px solid var(--border);border-bottom:none;border-radius:12px 12px 0 0;padding:10px 14px;}
+.feat-chrome span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.15);}
+.feat-chrome span:nth-child(1){background:#ff5f57;}
+.feat-chrome span:nth-child(2){background:#febc2e;}
+.feat-chrome span:nth-child(3){background:#28c840;}
+.feat-placeholder{aspect-ratio:16/10;background:var(--card);border:1px solid var(--border);border-radius:0 0 var(--r) var(--r);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px;font-weight:500;letter-spacing:.02em;}
+.feat-copy{flex:1 1 0;min-width:0;max-width:460px;}
+.feat-copy h3{font-size:26px;font-weight:700;letter-spacing:-.4px;line-height:1.25;margin-bottom:14px;}
+.feat-copy p{font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:26px;}
+.feat-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border:1.5px solid rgba(255,255,255,.18);color:var(--white);border-radius:9px;font-size:14px;font-weight:600;transition:border-color .2s,background .2s;}
+.feat-btn:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.05);}
 
 /* SECURITY */
 .sec-security{max-width:1320px;margin:0 auto;padding:0 16px 80px;}
@@ -170,7 +184,7 @@ img{max-width:100%;display:block;}
 .footer-wrap{max-width:1320px;margin:0 auto;padding:0 16px 32px;}
 .footer-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:56px 60px 40px;position:relative;overflow:hidden;}
 .footer-wm{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);font-family:'Sora',sans-serif;font-size:clamp(70px,15vw,200px);font-weight:900;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none;letter-spacing:-6px;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr;gap:48px;margin-bottom:48px;}
 .footer-brand p{font-size:13px;line-height:1.75;color:var(--dim);max-width:220px;margin-top:14px;}
 .footer-col h4{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;}
 .footer-links{display:flex;flex-direction:column;gap:12px;}
@@ -188,16 +202,14 @@ img{max-width:100%;display:block;}
 /* MOBILE */
 @media(max-width:1024px){
   .stats-grid{grid-template-columns:1fr 1fr;}
-  .feat-bento{grid-template-columns:repeat(2,1fr);}
-  .fc-lg,.fc-md{grid-column:span 2;grid-row:auto;}
-  .fc-sm{grid-column:span 1;}
-  .fc-full{grid-column:span 2;}
+  .feat-row{gap:40px;}
   .sec-cards{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
   .steps-line{display:none;}
+  .ba-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
-  .nav-links,.nav-right .btn-orange{display:none;}
+  .nav-links,.nav-right .btn-orange,.nav-right .nav-login{display:none;}
   .mob-btn{display:flex;}
   .hero-section{padding:0 20px 52px;}
   .hero-h{font-size:clamp(30px,8vw,48px);letter-spacing:-1.5px;}
@@ -208,8 +220,8 @@ img{max-width:100%;display:block;}
   .stats-grid{grid-template-columns:1fr 1fr;gap:10px;}
   .stat{padding:24px 20px;}
   .steps{grid-template-columns:1fr;}
-  .feat-bento{grid-template-columns:1fr;}
-  .fc-lg,.fc-md,.fc-sm,.fc-full{grid-column:span 1;grid-row:auto;}
+  .feat-row,.feat-row.reverse{flex-direction:column;gap:28px;padding:36px 0;}
+  .feat-copy{max-width:100%;}
   .sec-security-inner,.int-inner,.cta-box{padding:40px 28px;}
   .cta-mark{font-size:80px;}
   .footer-box{padding:40px 28px;}
@@ -220,13 +232,12 @@ img{max-width:100%;display:block;}
   .btn-w,.btn-ghost,.btn-cw,.btn-co{justify-content:center;}
   .stats-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
-  .fc-split-row{flex-direction:column;align-items:flex-start;}
-  .b-right{grid-template-columns:1fr;}
+  .ba-works{flex-direction:column;gap:14px;}
 }
 
 /* Mobile nav open */
 .mnav-open .nav-links{display:flex!important;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 20px 24px;gap:4px;z-index:99;}
-.mnav-open .nav-right .btn-orange{display:inline-flex;}
+.mnav-open .nav-right .btn-orange,.mnav-open .nav-right .nav-login{display:inline-flex;}
 
 /* Hover glow utility */
 .glow-hover{transition:box-shadow .25s,border-color .25s;}
@@ -241,7 +252,7 @@ img{max-width:100%;display:block;}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <img src="assets/logo-white.png" alt="Scryb" class="logo-img">
+      <img src="assets/logo.png" alt="Scryb" class="logo-img">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#process">Process</a></li>
@@ -250,7 +261,8 @@ img{max-width:100%;display:block;}
       <li><a href="#pricing">Pricing</a></li>
     </ul>
     <div class="nav-right">
-      <a href="#demo" class="btn-orange">Book a demo</a>
+      <a href="#login" class="nav-login">Log in</a>
+      <a href="#signup" class="btn-orange">Get started for free</a>
       <button class="mob-btn" id="mobBtn" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -265,10 +277,6 @@ img{max-width:100%;display:block;}
   <div class="hero-left-glow"></div>
   <div class="hero-right-glow"></div>
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="bd"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3" fill="white"/></svg></span>
-      AI Document Digitization &nbsp;·&nbsp; Live in 15 Minutes
-    </div>
     <h1 class="hero-h">
       If You're Still Typing
       <span class="ipill"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=56&h=56&q=80" alt="" loading="eager">Invoices</span>
@@ -276,17 +284,17 @@ img{max-width:100%;display:block;}
     </h1>
     <p class="hero-sub">Scryb reads invoices, receipts, and bank statements in almost any language — including handwriting — extracts every line item, and pushes it straight into Xero or QuickBooks.</p>
     <div class="cta-row">
-      <a href="#demo" class="btn-w">
-        Book a demo
+      <a href="#signup" class="btn-w">
+        Get started for free
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#app" class="btn-ghost">Try for free</a>
+      <a href="#demo" class="btn-ghost">Get a demo</a>
     </div>
   </div>
   <div class="hero-ticker">
     <div class="ticker-track">
       <span class="ticker-item"><span class="ticker-dot"></span>AI Document Digitization</span>
-      <span class="ticker-item"><span class="ticker-dot"></span>40+ Languages</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>200+ Languages</span>
       <span class="ticker-item"><span class="ticker-dot"></span>99%+ Extraction Accuracy</span>
       <span class="ticker-item"><span class="ticker-dot"></span>Live in 15 Minutes</span>
       <span class="ticker-item"><span class="ticker-dot"></span>Xero &amp; QuickBooks</span>
@@ -296,7 +304,7 @@ img{max-width:100%;display:block;}
       <span class="ticker-item"><span class="ticker-dot"></span>Duplicate Detection</span>
       <span class="ticker-item"><span class="ticker-dot"></span>Bank Statement Extraction</span>
       <span class="ticker-item"><span class="ticker-dot"></span>AI Document Digitization</span>
-      <span class="ticker-item"><span class="ticker-dot"></span>40+ Languages</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>200+ Languages</span>
       <span class="ticker-item"><span class="ticker-dot"></span>99%+ Extraction Accuracy</span>
       <span class="ticker-item"><span class="ticker-dot"></span>Live in 15 Minutes</span>
       <span class="ticker-item"><span class="ticker-dot"></span>Xero &amp; QuickBooks</span>
@@ -329,7 +337,7 @@ img{max-width:100%;display:block;}
     </div>
     <div class="stat glow-hover">
       <div class="stat-ico"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#FF4D00" stroke-width="1.5"/><path d="M7 11h8M11 7v8" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-      <div class="stat-n"><span class="cnt" data-t="40">0</span><em>+</em></div>
+      <div class="stat-n"><span class="cnt" data-t="200">0</span><em>+</em></div>
       <div class="stat-l">Languages Supported</div>
     </div>
   </div>
@@ -340,24 +348,34 @@ img{max-width:100%;display:block;}
   <div class="sec-hd">
     <div class="sec-label"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="#FF4D00" stroke-width="1.5"/><path d="M6.5 4.5v2l1.5 1" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/></svg>Process</div>
     <h2 class="sec-title">Hours Saved.<br>Minutes Spent.</h2>
-    <p class="sec-sub">Scryb extracts every line item from complex documents — including handwritten records — and posts them automatically.</p>
+    <p class="sec-sub">Scryb accurately extracts every line item from complex documents, including handwritten records.</p>
   </div>
-  <div class="steps">
-    <div class="steps-line"></div>
-    <div class="step glow-hover">
-      <div class="step-num step-num-def">1</div>
-      <h3 class="step-title">Connect</h3>
-      <p class="step-desc">Link Scryb to Xero or QuickBooks and your cloud storage in just a few clicks — securely and instantly.</p>
+  <div class="ba-grid">
+    <div class="ba-card glow-hover">
+      <span class="ba-tag ba-tag-before">Before</span>
+      <p class="ba-text">You're spending hours keying in data and fixing extraction errors.</p>
+      <div class="ba-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
     </div>
-    <div class="step glow-hover">
-      <div class="step-num step-num-def">2</div>
-      <h3 class="step-title">Process</h3>
-      <p class="step-desc">Upload any document — invoice, receipt, bank statement, or handwritten note — in any language. AI extracts every line item automatically.</p>
+    <div class="ba-card ba-card-after glow-hover">
+      <span class="ba-tag ba-tag-after">After</span>
+      <p class="ba-text">Drop in a document, and Scryb turns it into validated, posted transactions — no manual entry required.</p>
+      <div class="ba-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
     </div>
-    <div class="step glow-hover">
-      <div class="step-num step-num-act">3</div>
-      <h3 class="step-title">Approve</h3>
-      <p class="step-desc">Review the draft bill already created in Xero/QuickBooks and approve with a single click. No corrections, no manual entry.</p>
+  </div>
+  <div class="ba-works">
+    <span class="ba-works-label">Works seamlessly with</span>
+    <div class="ba-brands">
+      <span class="ba-brand">Xero</span>
+      <span class="ba-brand">QuickBooks</span>
+      <span class="ba-brand">SharePoint</span>
+      <span class="ba-brand">Google Drive</span>
+      <span class="ba-brand">Dropbox</span>
     </div>
   </div>
 </section>
@@ -366,68 +384,93 @@ img{max-width:100%;display:block;}
 <section id="features" class="sec">
   <div class="sec-hd">
     <div class="sec-label"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#FF4D00" stroke-width="1.5"/><path d="M5 6.5h3M5 8.5h2" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/></svg>Features</div>
-    <h2 class="sec-title">Built for Real-World<br>Bookkeeping</h2>
-    <p class="sec-sub">From messy documents to posted transactions — Scryb handles the work so your team can focus on what matters.</p>
+    <h2 class="sec-title">Built for Real-World<br><span class="hl">Bookkeeping</span></h2>
+    <p class="sec-sub">From messy documents to posted transactions, Scryb handles the manual work so your team can get more done in less time.</p>
   </div>
-  <div class="feat-bento">
 
-    <div class="fc fc-lg glow-hover">
-      <div class="fc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF4D00" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#FF4D00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3 class="fc-title">Self-Learning AI</h3>
-      <p class="fc-desc">Learns your bookkeeping rules from historical data and starts coding transactions automatically. The more you use it, the smarter it gets — adapting to your specific chart of accounts and vendor patterns.</p>
-      <div class="fc-img">
-        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=700&q=80" alt="AI neural network" loading="lazy" width="700" height="400">
+  <div class="feat-rows">
+
+    <div class="feat-row">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>Self-Learning AI</h3>
+        <p>Learns your bookkeeping rules from historical data and starts coding transactions automatically.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
-    <div class="fc fc-md glow-hover">
-      <div class="fc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="#FF4D00" stroke-width="1.5"/><path d="M3 10h18" stroke="#FF4D00" stroke-width="1"/><path d="M7 14h3M14 14h3" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/><path d="M12 3v3" stroke="#FF4D00" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <h3 class="fc-title">Duplicate Detection</h3>
-      <p class="fc-desc">Automatically flags potential duplicate transactions before posting — keeping books clean and eliminating double-entry errors before they happen.</p>
+    <div class="feat-row reverse">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>Duplicate Detection Before Posting</h3>
+        <p>Scryb automatically detects potential duplicate transactions before they're posted, helping you avoid double entries and maintain clean books.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
+      </div>
     </div>
 
-    <div class="fc fc-md glow-hover">
-      <div class="fc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 3h9l5 5v13H5V3z" stroke="#FF4D00" stroke-width="1.5"/><path d="M14 3v6h6" stroke="#FF4D00" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 12h8M8 16h5" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-      <h3 class="fc-title">Line Item Extraction</h3>
-      <p class="fc-desc">Extracts every line item from invoices, bills, and receipts — even when documents are messy, scanned at odd angles, or partially handwritten.</p>
+    <div class="feat-row">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>Line Item Extraction</h3>
+        <p>Extract every line item from invoices, bills, and receipts even when documents are messy or handwritten.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
+      </div>
     </div>
 
-    <div class="fc fc-sm glow-hover">
-      <div class="fc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#FF4D00" stroke-width="1.5"/><path d="M3 10h18" stroke="#FF4D00" stroke-width="1"/><path d="M7 14h3M14 14h3" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-      <h3 class="fc-title">Bank Statements</h3>
-      <p class="fc-desc">Turn any bank statement into structured transactions ready for Xero, QuickBooks, or CSV export.</p>
+    <div class="feat-row reverse">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>Bank Statement Extraction</h3>
+        <p>Turn any bank statement into structured transactions ready for Xero, QuickBooks, or CSV export.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
+      </div>
     </div>
 
-    <div class="fc fc-sm glow-hover">
-      <div class="fc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 4h9l4 4v12H6V4z" stroke="#FF4D00" stroke-width="1.5"/><path d="M15 4v5h5" stroke="#FF4D00" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 14c0-1.4 1-2 2-2s2 .6 2 2" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-      <h3 class="fc-title">Handwriting Recognition</h3>
-      <p class="fc-desc">Reads handwritten invoices and receipts, turning them into structured accounting data.</p>
+    <div class="feat-row">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>Handwriting Recognition</h3>
+        <p>Accurately reads handwritten invoices, bills, receipts, and notes, turning them into structured, usable accounting data without manual entry.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
+      </div>
     </div>
 
-    <div class="fc fc-sm glow-hover">
-      <div class="fc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="6" height="6" rx="2" stroke="#FF4D00" stroke-width="1.5"/><rect x="15" y="3" width="6" height="6" rx="2" stroke="#FF4D00" stroke-width="1.5"/><rect x="3" y="15" width="6" height="6" rx="2" stroke="#FF4D00" stroke-width="1.5"/><rect x="15" y="15" width="6" height="6" rx="2" stroke="#FF4D00" stroke-width="1.5"/></svg></div>
-      <h3 class="fc-title">Cloud Storage</h3>
-      <p class="fc-desc">SharePoint, Dropbox, and Google Drive — auto-ingest documents the moment they're uploaded.</p>
+    <div class="feat-row reverse">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>SharePoint, Dropbox, Google Drive Integrations</h3>
+        <p>Connect your existing storage tools and let Scryb automatically ingest documents from SharePoint, Dropbox, or Google Drive for seamless processing.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
+      </div>
     </div>
 
-    <div class="fc fc-full glow-hover">
-      <div class="fc-split-row">
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-            <div class="fc-ico" style="flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="16" rx="2.5" stroke="#FF4D00" stroke-width="1.5"/><path d="M12 7v8M9 11l3 3 3-3" stroke="#FF4D00" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3 class="fc-title">Auto-Split</h3>
-          </div>
-          <p class="fc-desc" style="max-width:500px;">Upload one mixed PDF. Scryb automatically separates invoices, receipts, and bank statements into individual documents — each extracted, coded, and ready to post.</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
-          <div class="split-doc"><svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M2 2h8l4 4v12H2z" stroke="rgba(255,255,255,.35)" stroke-width="1.3"/><path d="M10 2v5h5" stroke="rgba(255,255,255,.25)" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
-          <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M2 7h24M18 3l6 4-6 4" stroke="#FF4D00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div style="display:flex;flex-direction:column;gap:7px;">
-            <div class="split-doc" style="border-color:rgba(255,77,0,.3);"><svg width="12" height="15" viewBox="0 0 12 15" fill="none"><path d="M2 2h5l3 3v8H2z" stroke="#FF4D00" stroke-width="1.1"/></svg></div>
-            <div class="split-doc" style="border-color:rgba(255,77,0,.2);"><svg width="12" height="15" viewBox="0 0 12 15" fill="none"><path d="M2 2h5l3 3v8H2z" stroke="rgba(255,77,0,.5)" stroke-width="1.1"/></svg></div>
-            <div class="split-doc"><svg width="12" height="15" viewBox="0 0 12 15" fill="none"><path d="M2 2h5l3 3v8H2z" stroke="rgba(255,255,255,.2)" stroke-width="1.1"/></svg></div>
-          </div>
-        </div>
+    <div class="feat-row">
+      <div class="feat-media">
+        <div class="feat-chrome"><span></span><span></span><span></span></div>
+        <div class="feat-placeholder">Media placeholder</div>
+      </div>
+      <div class="feat-copy">
+        <h3>Auto-Split</h3>
+        <p>Upload one mixed PDF. Scryb automatically separates invoices, receipts, and statements into individual documents.</p>
+        <a href="#demo" class="feat-btn">Book a demo</a>
       </div>
     </div>
 
@@ -504,7 +547,7 @@ img{max-width:100%;display:block;}
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo">
-          <img src="assets/logo-white.png" alt="Scryb" class="logo-img">
+          <img src="assets/logo.png" alt="Scryb" class="logo-img">
         </a>
         <p>AI document digitization for accounting firms. Any document, any language, live in minutes.</p>
       </div>
@@ -513,30 +556,13 @@ img{max-width:100%;display:block;}
         <div class="footer-links">
           <a href="#process">Process</a>
           <a href="#features">Features</a>
+          <a href="#integrations">Integrations</a>
           <a href="#pricing">Pricing</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Integrations</h4>
-        <div class="footer-links">
-          <a href="#integrations">Xero</a>
-          <a href="#integrations">QuickBooks</a>
-          <a href="#integrations">Google Drive</a>
-          <a href="#integrations">SharePoint</a>
-          <a href="#integrations">Dropbox</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <div class="footer-links">
-          <a href="#demo">Book a demo</a>
-          <a href="#">Trust Center</a>
-          <a href="#">Privacy Policy</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 GoScryb Technologies Pte Ltd.</span>
+      <span class="footer-copy">© 2026 GoScryb llc.</span>
       <div class="footer-legal">
         <a href="#">Terms</a>
         <a href="#">Privacy</a>
@@ -586,7 +612,7 @@ if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   gsap.from('.hero-glow',{opacity:0,scale:.75,duration:1.4,ease:'power2.out',delay:.05,clearProps:'all'});
 
   // Generic scroll reveals
-  var revealEls=['.stat','.step','.sc','.sec-hd'];
+  var revealEls=['.stat','.step','.sc','.sec-hd','.ba-card'];
   revealEls.forEach(function(sel){
     gsap.utils.toArray(sel).forEach(function(el,i){
       gsap.fromTo(el,
@@ -598,13 +624,12 @@ if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
     });
   });
 
-  // Feature cards stagger by row
-  gsap.utils.toArray('.fc').forEach(function(el,i){
+  // Feature rows fade up
+  gsap.utils.toArray('.feat-row').forEach(function(el){
     gsap.fromTo(el,
-      {opacity:0,y:24,scale:.98},
-      {opacity:1,y:0,scale:1,duration:.65,ease:'power3.out',
-       scrollTrigger:{trigger:el,start:'top 88%',once:true},
-       delay:(i%3)*.08}
+      {opacity:0,y:28},
+      {opacity:1,y:0,duration:.7,ease:'power3.out',
+       scrollTrigger:{trigger:el,start:'top 85%',once:true}}
     );
   });
 
@@ -680,7 +705,7 @@ if(!isMobile){
     cur.style.top=e.clientY+'px';
     cur.style.opacity='.75';
   });
-  document.querySelectorAll('a,button,.fc,.stat,.step,.sc').forEach(function(el){
+  document.querySelectorAll('a,button,.stat,.step,.sc,.ba-card').forEach(function(el){
     el.addEventListener('mouseenter',function(){
       cur.style.transform='translate(-50%,-50%) scale(3)';
       cur.style.opacity='.35';
@@ -695,7 +720,7 @@ if(!isMobile){
 }
 
 // Card micro-interaction: tilt on mousemove
-document.querySelectorAll('.fc,.stat,.step').forEach(function(card){
+document.querySelectorAll('.stat,.step,.ba-card').forEach(function(card){
   card.addEventListener('mousemove',function(e){
     var r=card.getBoundingClientRect();
     var x=(e.clientX-r.left)/r.width-.5;
