@@ -19,6 +19,6 @@ Scryb offers multiple subscription tiers with a 7-day free trial. See the Pricin
 
 ## Links
 - Homepage: https://chathucnb.github.io/scryb/
-- Sign up / free trial: https://ocr.goscryb.com/signup
-- Log in: https://ocr.goscryb.com/login
+- Sign up / free trial: https://app.goscryb.com/signup
+- Log in: https://app.goscryb.com/login
 - Contact: https://chathucnb.github.io/scryb/#contact
