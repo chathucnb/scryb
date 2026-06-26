@@ -152,7 +152,9 @@ img{max-width:100%;display:block;}
 .feat-chrome span:nth-child(1){background:#ff5f57;}
 .feat-chrome span:nth-child(2){background:#febc2e;}
 .feat-chrome span:nth-child(3){background:#28c840;}
-.feat-placeholder{aspect-ratio:16/10;background:var(--card);border:1px solid var(--border);border-radius:0 0 var(--r) var(--r);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px;font-weight:500;letter-spacing:.02em;}
+.feat-placeholder{aspect-ratio:16/10;background:var(--card);border:1px solid var(--border);border-radius:0 0 var(--r) var(--r);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px;font-weight:500;letter-spacing:.02em;overflow:hidden;}
+.feat-placeholder.has-media{padding:0;}
+.feat-placeholder.has-media img{width:100%;height:100%;object-fit:cover;display:block;}
 .feat-copy{flex:1 1 0;min-width:0;max-width:460px;}
 .feat-copy h3{font-size:26px;font-weight:700;letter-spacing:-.4px;line-height:1.25;margin-bottom:14px;}
 .feat-copy p{font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:26px;}
@@ -415,7 +417,7 @@ body.modal-open{overflow:hidden;}
       <p class="ba-text">You're spending hours keying in data and fixing extraction errors.</p>
       <div class="ba-media">
         <div class="feat-chrome"><span></span><span></span><span></span></div>
-        <div class="feat-placeholder">Media placeholder</div>
+        <div class="feat-placeholder has-media"><img src="assets/before.gif" alt="Manual data entry before Scryb" loading="lazy"></div>
       </div>
     </div>
     <div class="ba-card ba-card-after glow-hover">
@@ -423,7 +425,7 @@ body.modal-open{overflow:hidden;}
       <p class="ba-text">Drop in a document, and Scryb turns it into validated, posted transactions — no manual entry required.</p>
       <div class="ba-media">
         <div class="feat-chrome"><span></span><span></span><span></span></div>
-        <div class="feat-placeholder">Media placeholder</div>
+        <div class="feat-placeholder has-media"><img src="assets/after.gif" alt="Validated, posted transactions after Scryb" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -476,7 +478,7 @@ body.modal-open{overflow:hidden;}
     <div class="feat-row">
       <div class="feat-media">
         <div class="feat-chrome"><span></span><span></span><span></span></div>
-        <div class="feat-placeholder">Media placeholder</div>
+        <div class="feat-placeholder has-media"><img src="assets/line_item and_hand_written.gif" alt="Line item extraction from handwritten and printed documents" loading="lazy"></div>
       </div>
       <div class="feat-copy">
         <h3>Line Item Extraction</h3>
@@ -488,7 +490,7 @@ body.modal-open{overflow:hidden;}
     <div class="feat-row reverse">
       <div class="feat-media">
         <div class="feat-chrome"><span></span><span></span><span></span></div>
-        <div class="feat-placeholder">Media placeholder</div>
+        <div class="feat-placeholder has-media"><img src="assets/bank_statements.gif" alt="Bank statement extraction into structured transactions" loading="lazy"></div>
       </div>
       <div class="feat-copy">
         <h3>Bank Statement Extraction</h3>
@@ -524,7 +526,7 @@ body.modal-open{overflow:hidden;}
     <div class="feat-row">
       <div class="feat-media">
         <div class="feat-chrome"><span></span><span></span><span></span></div>
-        <div class="feat-placeholder">Media placeholder</div>
+        <div class="feat-placeholder has-media"><img src="assets/auto_split.gif" alt="Auto-split a mixed PDF into individual documents" loading="lazy"></div>
       </div>
       <div class="feat-copy">
         <h3>Auto-Split</h3>
