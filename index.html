@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart AI Bookkeeping for Finance Teams | Scryb</title>
+<title>AI Bookkeeping for Finance Teams | Scryb</title>
 <meta name="description" content="Scryb instantly converts invoices, receipts, and bank statements into fully coded accounting entries. Powered by AI, it handles any format, language, or handwriting—no templates, mapping, or manual work needed.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scryb">
-<meta property="og:title" content="Smart AI Bookkeeping for Finance Teams | Scryb">
+<meta property="og:title" content="AI Bookkeeping for Finance Teams | Scryb">
 <meta property="og:description" content="Scryb instantly converts invoices, receipts, and bank statements into fully coded accounting entries. Powered by AI, it handles any format, language, or handwriting—no templates, mapping, or manual work needed.">
 <meta property="og:url" content="https://chathucnb.github.io/scryb/">
 <meta property="og:image" content="https://chathucnb.github.io/scryb/assets/icon-512.png">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Smart AI Bookkeeping for Finance Teams | Scryb">
+<meta name="twitter:title" content="AI Bookkeeping for Finance Teams | Scryb">
 <meta name="twitter:description" content="Scryb instantly converts invoices, receipts, and bank statements into fully coded accounting entries. Powered by AI, it handles any format, language, or handwriting—no templates, mapping, or manual work needed.">
 <meta name="twitter:image" content="https://chathucnb.github.io/scryb/assets/icon-512.png">
 
@@ -391,7 +391,7 @@ body.modal-open{overflow:hidden;}
     <h1 class="hero-h">
       If You're Still Typing
       <span class="ipill"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=56&h=56&q=80" alt="" loading="eager">Invoices</span>
-      <br>You're Doing It the Hard Way.
+      <br>You're Doing It the Hard Way
     </h1>
     <p class="hero-sub">Upload any invoice, receipt, or bank statement in 70+ languages, including handwriting.<br><br>Scryb extracts every line item, automatically codes transactions, and publishes them directly to your accounting software.<br><br>No templates. No mapping. No manual data entry.</p>
     <div class="cta-row">
@@ -836,16 +836,24 @@ body.modal-open{overflow:hidden;}
     <p class="modal-sub">Tell us about your team and we'll set up a personalized walkthrough.</p>
     <form id="demoForm" class="modal-form">
       <div class="modal-field">
-        <label for="dName">Name</label>
+        <label for="dName">Name*</label>
         <input type="text" id="dName" name="name" placeholder="Your name" required>
       </div>
       <div class="modal-field">
-        <label for="dEmail">Email</label>
+        <label for="dEmail">Email*</label>
         <input type="email" id="dEmail" name="email" placeholder="you@company.com" required>
       </div>
       <div class="modal-field">
-        <label for="dMessage">Message</label>
-        <textarea id="dMessage" name="message" rows="4" placeholder="What would you like to see in the demo?" required></textarea>
+        <label for="dPhone">Phone*</label>
+        <input type="tel" id="dPhone" name="phone" placeholder="Your phone number" required>
+      </div>
+      <div class="modal-field">
+        <label for="dCompany">Company*</label>
+        <input type="text" id="dCompany" name="company" placeholder="Your company" required>
+      </div>
+      <div class="modal-field">
+        <label for="dCountry">Country*</label>
+        <input type="text" id="dCountry" name="country" placeholder="Your country" required>
       </div>
       <button type="submit" class="btn-w modal-submit">
         Request demo
@@ -1052,12 +1060,20 @@ function setupModal(opts){
   });
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var name=form.name.value.trim();
-    var email=form.email.value.trim();
-    var message=form.message.value.trim();
-    if(!name||!email||!message) return;
+    var fields=[];
+    var name='';
+    var valid=true;
+    Array.prototype.forEach.call(form.elements,function(el){
+      if(!el.name) return;
+      var val=el.value.trim();
+      if(el.required&&!val) valid=false;
+      if(el.name==='name') name=val;
+      var label=el.name.charAt(0).toUpperCase()+el.name.slice(1);
+      fields.push(label+': '+val);
+    });
+    if(!valid) return;
     var subject=encodeURIComponent(opts.subjectPrefix+' from '+name+' — Scryb website');
-    var body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message);
+    var body=encodeURIComponent(fields.join('\n'));
     status.textContent='Opening your email client…';
     window.location.href='mailto:hello@booleenlab.com?subject='+subject+'&body='+body;
     setTimeout(function(){
