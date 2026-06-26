@@ -1,0 +1,24 @@
+# Scryb
+
+> Scryb is an AI bookkeeping platform that instantly converts invoices, receipts, and bank statements into fully coded accounting entries. It handles any format, language, or handwriting, with no templates, mapping, or manual work required.
+
+Scryb is built for accounting firms and finance teams who want to eliminate manual data entry. Documents are processed by a self-learning AI that extracts every line item — including handwritten records — and pushes the result directly into Xero or QuickBooks.
+
+## Key capabilities
+- Document digitization for invoices, receipts, and bank statements
+- Support for 200+ languages, including handwriting recognition
+- Self-learning AI that automatically codes transactions from historical data
+- Duplicate detection before posting
+- Auto-split: separates a single mixed PDF into individual documents
+- Direct integration with Xero and QuickBooks
+- Document ingestion from SharePoint, Dropbox, and Google Drive
+- Claimed 99%+ extraction accuracy, live setup in around 15 minutes
+
+## Pricing
+Scryb offers multiple subscription tiers with a 7-day free trial. See the Pricing section at https://chathucnb.github.io/scryb/#pricing for current plans.
+
+## Links
+- Homepage: https://chathucnb.github.io/scryb/
+- Sign up / free trial: https://ocr.goscryb.com/signup
+- Log in: https://ocr.goscryb.com/login
+- Contact: https://chathucnb.github.io/scryb/#contact
