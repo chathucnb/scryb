@@ -267,7 +267,7 @@ img{max-width:100%;display:block;}
 /* FOOTER */
 .footer-wrap{max-width:1320px;margin:0 auto;padding:0 16px 32px;}
 .footer-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:56px 60px 40px;position:relative;overflow:hidden;}
-.footer-wm{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:'Sora',sans-serif;font-size:clamp(50px,12vw,160px);font-weight:900;color:rgba(255,255,255,.05);white-space:nowrap;pointer-events:none;letter-spacing:-6px;line-height:1;}
+.footer-wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Sora',sans-serif;font-size:clamp(28px,5vw,44px);font-weight:900;color:rgba(255,255,255,.05);white-space:nowrap;pointer-events:none;letter-spacing:-1px;line-height:1;z-index:0;}
 .footer-grid{display:grid;grid-template-columns:1.4fr 2fr;gap:32px;margin-bottom:48px;}
 .footer-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:start;}
 .footer-brand p{font-size:13px;line-height:1.75;color:var(--dim);max-width:260px;margin-top:14px;}
@@ -277,9 +277,9 @@ img{max-width:100%;display:block;}
 .footer-links a:hover{color:var(--white);}
 .footer-social a{display:flex;align-items:center;gap:8px;}
 .footer-social svg{flex-shrink:0;}
-.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
-.footer-copy{font-size:12px;color:var(--dim);}
-.footer-legal{display:flex;gap:24px;}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;overflow:hidden;}
+.footer-copy{font-size:12px;color:var(--dim);position:relative;z-index:1;}
+.footer-legal{display:flex;gap:24px;position:relative;z-index:1;}
 .footer-legal a{font-size:12px;color:var(--dim);transition:color .2s;}
 .footer-legal a:hover{color:var(--white);}
 
@@ -346,6 +346,8 @@ body.modal-open{overflow:hidden;}
   .btn-w,.btn-ghost,.btn-cw,.btn-co{justify-content:center;}
   .stats-grid{grid-template-columns:1fr;}
   .footer-cats{grid-template-columns:1fr 1fr;gap:24px;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .footer-wm{display:none;}
   .ba-works{flex-direction:column;gap:14px;}
 }
 
@@ -754,7 +756,6 @@ body.modal-open{overflow:hidden;}
 <!-- FOOTER -->
 <footer class="footer-wrap">
   <div class="footer-box">
-    <div class="footer-wm">SCRYB</div>
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo">
@@ -797,6 +798,7 @@ body.modal-open{overflow:hidden;}
       </div>
     </div>
     <div class="footer-bottom">
+      <div class="footer-wm">SCRYB</div>
       <span class="footer-copy">© 2026 Scryb. All Rights Reserved.</span>
       <div class="footer-legal">
         <a href="terms.html">Terms</a>
