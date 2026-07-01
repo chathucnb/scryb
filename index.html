@@ -1088,21 +1088,22 @@ function setupModal(opts){
     data.subject=opts.subjectPrefix+' — Scryb website';
     var btn=form.querySelector('button[type="submit"]');
     btn.disabled=true;
+    status.style.color='var(--muted)';
     status.textContent='Sending…';
     fetch('https://keijmqa7xmwzp7mvqnuhmcjzbq0rwcts.lambda-url.us-east-1.on.aws/',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
       body:JSON.stringify(data)
-    }).then(function(r){
-      if(!r.ok) throw new Error(r.status);
+    }).then(function(){
       status.style.color='#4ade80';
       status.textContent='Sent! We\'ll be in touch soon.';
       form.reset();
+      btn.disabled=false;
       setTimeout(closeModal,2200);
     }).catch(function(){
       status.style.color='var(--orange)';
       status.textContent='Something went wrong. Please try again.';
-    }).finally(function(){
       btn.disabled=false;
     });
   });
